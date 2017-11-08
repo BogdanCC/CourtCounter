@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="teamNameColor">#616161</color>
+    <color name="scoreColor">#000000</color>
+    <color name="firyColor">#F44336</color>
+    <color name="mooColor">#A1887F</color>
+    <color name="meowColor">#EC407A</color>
+    <color name="meLuckyColor">#69F0AE</color>
+    <color name="meLuckyColorText">#00E676</color>
+    <color name="resetColor">#18FFFF</color>
+</resources>

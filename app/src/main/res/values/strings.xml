@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Court Counter</string>
+    <!-- For XML -->
+    <string name="Team_A">Player A</string>
+    <string name="Team_B">Player B</string>
+    <string name="Score">0</string>
+    <string name="random">\?</string>
+    <string name="three_points">+3 RAWR</string>
+    <string name="two_points">+2 Moo</string>
+    <string name="free_throw">+1 meow</string>
+    <string name="reset">Reset</string>
+    <string name="feel_lucky">Me Lucky</string>
+    <string name="generated_number">Generated big boy</string>
+    <!-- For Java -->
+    <string name="rawr">GET OUTTA MY WAY!</string>
+    <string name="boring">Moo!\nBoring!</string>
+    <string name="meow">me scaled little girl</string>
+    <string name="winner">You are the winner!</string>
+    <string name="loser">You are the loser!</string>
+    <string name="bazzinga">Bazzinga!\nIt was 0 all along!</string>
+</resources>
