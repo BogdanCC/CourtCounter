@@ -13,7 +13,22 @@ import android.widget.Toast;
 import java.util.Random;
 // COMMIT!
 public class MainActivity extends AppCompatActivity {
+    // Declaring all findViewByIds
     MediaPlayer mediaPlayer;
+    Button button3A;
+    Button button2A;
+    Button button1A;
+    Button button0A;
+    Button button3B;
+    Button button2B;
+    Button button1B;
+    Button button0B;
+    TextView textViewA;
+    TextView textViewB;
+    TextView scoreViewA;
+    TextView scoreViewB;
+    TextView randomA;
+    TextView randomB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +47,21 @@ public class MainActivity extends AppCompatActivity {
                 releaseMediaPlayer();
             }
         });
+        // Initialising all findViewByIds
+        button3A = (Button) findViewById(R.id.three_points_A);
+        button2A = (Button) findViewById(R.id.two_points_A);
+        button1A = (Button) findViewById(R.id.one_point_A);
+        button0A = (Button) findViewById(R.id.zero_points_A);
+        button3B = (Button) findViewById(R.id.three_points_B);
+        button2B = (Button) findViewById(R.id.two_points_B);
+        button1B = (Button) findViewById(R.id.one_point_B);
+        button0B = (Button) findViewById(R.id.zero_points_B);
+        textViewA = (TextView) findViewById(R.id.generatedA);
+        textViewB = (TextView) findViewById(R.id.generatedB);
+        scoreViewA = (TextView) findViewById(R.id.team_a_score);
+        scoreViewB = (TextView) findViewById(R.id.team_b_score);
+        randomA = (TextView) findViewById(R.id.random_string_A);
+        randomB = (TextView) findViewById(R.id.random_string_B);
     }
     // Release media player if activity has stopped
     @Override
@@ -70,8 +100,6 @@ public class MainActivity extends AppCompatActivity {
     }
     // Method to show the random number at the end of the game
     public void showRandom() {
-        TextView randomA = (TextView) findViewById(R.id.random_string_A);
-        TextView randomB = (TextView) findViewById(R.id.random_string_B);
         randomA.setText(String.valueOf(generatedTeamA));
         randomB.setText(String.valueOf(generatedTeamB));
     }
@@ -81,11 +109,6 @@ public class MainActivity extends AppCompatActivity {
     }
     // Method to compare score B with random B
     public void checkScoreB() {
-            // Creating local variables to get the text views, I noticed it didn't let me create them outside methods
-            TextView textViewA = (TextView) findViewById(R.id.generatedA);
-            TextView textViewB = (TextView) findViewById(R.id.generatedB);
-            TextView scoreViewA = (TextView) findViewById(R.id.team_a_score);
-            TextView scoreViewB = (TextView) findViewById(R.id.team_b_score);
             // If score B is equal to random B, player B wins
             if(scoreTeamB == generatedTeamB) {
                 displayTextForTeamB(getResources().getString(R.string.winner));
@@ -113,10 +136,6 @@ public class MainActivity extends AppCompatActivity {
     }
     // Method to compare score A with random A
     public void checkScoreA() {
-            TextView textViewA = (TextView) findViewById(R.id.generatedA);
-            TextView textViewB = (TextView) findViewById(R.id.generatedB);
-            TextView scoreViewA = (TextView) findViewById(R.id.team_a_score);
-            TextView scoreViewB = (TextView) findViewById(R.id.team_b_score);
             if(scoreTeamA == generatedTeamA) {
                 displayTextForTeamA(getResources().getString(R.string.winner));
                 displayTextForTeamB(getResources().getString(R.string.loser));
@@ -148,11 +167,6 @@ public class MainActivity extends AppCompatActivity {
         // Only check for 0 if nobody has checked yet
         if(!hasCheckedZero) {
             if(scoreTeamA == 0 || scoreTeamB == 0) {
-                // Creating local objects for textiew so we can alter them
-                TextView textViewA = (TextView) findViewById(R.id.generatedA);
-                TextView textViewB = (TextView) findViewById(R.id.generatedB);
-                TextView scoreViewA = (TextView) findViewById(R.id.team_a_score);
-                TextView scoreViewB = (TextView) findViewById(R.id.team_b_score);
                 // First check for player A then for player B if not true
                 if(scoreTeamA == 0 && generatedTeamA == 0) {
                     displayTextForTeamA(getResources().getString(R.string.bazzinga));
@@ -193,11 +207,6 @@ public class MainActivity extends AppCompatActivity {
         // Only check for 0 if nobody has checked yet
         if(!hasCheckedZero) {
             if(scoreTeamA == 0 || scoreTeamB == 0) {
-                // Creating local objects for textivew so we can alter them
-                TextView textViewA = (TextView) findViewById(R.id.generatedA);
-                TextView textViewB = (TextView) findViewById(R.id.generatedB);
-                TextView scoreViewA = (TextView) findViewById(R.id.team_a_score);
-                TextView scoreViewB = (TextView) findViewById(R.id.team_b_score);
                 // First check for player B then for player A if not true
                 if (scoreTeamB == 0 && generatedTeamB == 0) {
                     displayTextForTeamB(getResources().getString(R.string.bazzinga));
@@ -238,7 +247,6 @@ public class MainActivity extends AppCompatActivity {
             scoreTeamA = scoreTeamA + 3;
             displayForTeamA(scoreTeamA);
             displayTextForTeamA(getResources().getString(R.string.rawr));
-            TextView textViewA = (TextView) findViewById(R.id.generatedA);
             textViewA.setTextColor(ResourcesCompat.getColor(getResources(), R.color.firyColor, null));
             checkScoreA();
             isPlayersAturn = false;
@@ -255,7 +263,6 @@ public class MainActivity extends AppCompatActivity {
             scoreTeamA = scoreTeamA + 2;
             displayForTeamA(scoreTeamA);
             displayTextForTeamA(getResources().getString(R.string.boring));
-            TextView textViewA = (TextView) findViewById(R.id.generatedA);
             textViewA.setTextColor(ResourcesCompat.getColor(getResources(), R.color.mooColor, null));
             checkScoreA();
             isPlayersAturn = false;
@@ -272,7 +279,6 @@ public class MainActivity extends AppCompatActivity {
             scoreTeamA++;
             displayForTeamA(scoreTeamA);
             displayTextForTeamA(getResources().getString(R.string.meow));
-            TextView textViewA = (TextView) findViewById(R.id.generatedA);
             textViewA.setTextColor(ResourcesCompat.getColor(getResources(), R.color.meowColor, null));
             checkScoreA();
             isPlayersAturn = false;
@@ -289,7 +295,6 @@ public class MainActivity extends AppCompatActivity {
             scoreTeamB = scoreTeamB + 3;
             displayForTeamB(scoreTeamB);
             displayTextForTeamB(getResources().getString(R.string.rawr));
-            TextView textViewB = (TextView) findViewById(R.id.generatedB);
             textViewB.setTextColor(ResourcesCompat.getColor(getResources(), R.color.firyColor, null));
             checkScoreB();
             isPlayersBturn = false;
@@ -306,7 +311,6 @@ public class MainActivity extends AppCompatActivity {
             scoreTeamB = scoreTeamB + 2;
             displayForTeamB(scoreTeamB);
             displayTextForTeamB(getResources().getString(R.string.boring));
-            TextView textViewB = (TextView) findViewById(R.id.generatedB);
             textViewB.setTextColor(ResourcesCompat.getColor(getResources(), R.color.mooColor, null));
             checkScoreB();
             isPlayersBturn = false;
@@ -323,7 +327,6 @@ public class MainActivity extends AppCompatActivity {
         scoreTeamB++;
         displayForTeamB(scoreTeamB);
         displayTextForTeamB(getResources().getString(R.string.meow));
-        TextView textViewB = (TextView) findViewById(R.id.generatedB);
         textViewB.setTextColor(ResourcesCompat.getColor(getResources(), R.color.meowColor, null));
         checkScoreB();
             isPlayersBturn = false;
@@ -345,26 +348,12 @@ public class MainActivity extends AppCompatActivity {
         generate();
         displayTextForTeamA(getResources().getString(R.string.generated_number));
         displayTextForTeamB(getResources().getString(R.string.generated_number));
-        TextView textViewA = (TextView) findViewById(R.id.generatedA);
-        TextView textViewB = (TextView) findViewById(R.id.generatedB);
-        TextView scoreViewA = (TextView) findViewById(R.id.team_a_score);
-        TextView scoreViewB = (TextView) findViewById(R.id.team_b_score);
-        TextView randomA = (TextView) findViewById(R.id.random_string_A);
-        TextView randomB = (TextView) findViewById(R.id.random_string_B);
         randomA.setText(getResources().getString(R.string.random));
         randomB.setText(getResources().getString(R.string.random));
         textViewA.setTextColor(Color.GRAY);
         textViewB.setTextColor(Color.GRAY);
         scoreViewA.setTextColor(Color.BLACK);
         scoreViewB.setTextColor(Color.BLACK);
-        Button button3A = (Button) findViewById(R.id.three_points_A);
-        Button button2A = (Button) findViewById(R.id.two_points_A);
-        Button button1A = (Button) findViewById(R.id.one_point_A);
-        Button button0A = (Button) findViewById(R.id.zero_points_A);
-        Button button3B = (Button) findViewById(R.id.three_points_B);
-        Button button2B = (Button) findViewById(R.id.two_points_B);
-        Button button1B = (Button) findViewById(R.id.one_point_B);
-        Button button0B = (Button) findViewById(R.id.zero_points_B);
         button3A.setEnabled(true);
         button2A.setEnabled(true);
         button1A.setEnabled(true);
@@ -378,14 +367,6 @@ public class MainActivity extends AppCompatActivity {
         hasCheckedZero = false;
     }
     public void gameOver() {
-        Button button3A = (Button) findViewById(R.id.three_points_A);
-        Button button2A = (Button) findViewById(R.id.two_points_A);
-        Button button1A = (Button) findViewById(R.id.one_point_A);
-        Button button0A = (Button) findViewById(R.id.zero_points_A);
-        Button button3B = (Button) findViewById(R.id.three_points_B);
-        Button button2B = (Button) findViewById(R.id.two_points_B);
-        Button button1B = (Button) findViewById(R.id.one_point_B);
-        Button button0B = (Button) findViewById(R.id.zero_points_B);
         button3A.setEnabled(false);
         button2A.setEnabled(false);
         button1A.setEnabled(false);
@@ -397,19 +378,15 @@ public class MainActivity extends AppCompatActivity {
         releaseMediaPlayer();
     }
     public void displayForTeamA(int score) {
-        TextView scoreView = (TextView) findViewById(R.id.team_a_score);
-        scoreView.setText(String.valueOf(score));
+        scoreViewA.setText(String.valueOf(score));
     }
     public void displayTextForTeamA(String score) {
-        TextView text = (TextView) findViewById(R.id.generatedA);
-        text.setText(score);
+        textViewA.setText(score);
     }
     public void displayForTeamB(int score) {
-        TextView scoreView = (TextView) findViewById(R.id.team_b_score);
-        scoreView.setText(String.valueOf(score));
+        scoreViewB.setText(String.valueOf(score));
     }
     public void displayTextForTeamB(String score) {
-        TextView text = (TextView) findViewById(R.id.generatedB);
-        text.setText(score);
+        textViewB.setText(score);
     }
 }
