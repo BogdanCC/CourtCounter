@@ -10,7 +10,7 @@
 	- If it isn't 0, the computer will automatically check for the 2nd player's random 	number, and if his number is 0, then he automatically wins the game! Oh noes!
 - During the game players will take turns adding 1,2 or 3 for their sum. But if one player's sum (which is shown on the screen) becomes greater than the number generated for him/her, that player will automatically lose the game and the other will win
 - If one player's sum becomes equal to the number generated for him, he wins the game.
-- Update 24.11.2017 - App is now fully functional, 1 turn per player, not more adding after game is over, added winning song and playing song
+- Update 24.11.2017 - App is now fully functional, 1 turn per player, no more adding after game is over, added winning song and playing song
 
 ![Alt text](screenshots/Screenshot_2017-11-08-11-05-53.png?raw=true "Optional Title")
 ![Alt text](screenshots/Screenshot_2017-11-24-03-14-42.png?raw=true "Optional Title")
