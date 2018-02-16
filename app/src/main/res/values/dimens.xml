@@ -1,16 +1,18 @@
 <resources>
-    <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
-
+    <!-- Text Sizes -->
     <dimen name="medium_text_size">14sp</dimen>
     <dimen name="large_text_size">24sp</dimen>
     <dimen name="huge_text_size">56sp</dimen>
 
+    <!-- Layouts margins and paddings -->
     <dimen name="small_spacing">8dp</dimen>
     <dimen name="medium_spacing">16dp</dimen>
     <dimen name="large_spacing">24dp</dimen>
     <dimen name="larger_spacing">32dp</dimen>
 
+    <!-- Reset button size -->
+    <dimen name="reset_button_size">75dp</dimen>
+
     <dimen name="null_size">0dp</dimen>
+    <dimen name="divider_width">1dp</dimen>
 </resources>

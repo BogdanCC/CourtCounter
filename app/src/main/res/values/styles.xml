@@ -6,4 +6,55 @@
         <!-- Background color of buttons in the app -->
         <item name="colorButtonNormal">#6D4C41</item>
     </style>
+
+    <!-- Player column style -->
+    <style name="playerColumnStyle">
+        <item name="android:layout_width">@dimen/null_size</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+    <!-- Player name text style -->
+    <style name="playerNameStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:padding">@dimen/medium_spacing</item>
+        <item name="android:textSize">@dimen/medium_text_size</item>
+        <item name="android:textColor">@color/teamNameColor</item>
+    </style>
+    <!-- Generated number text style -->
+    <style name="generatedNumberStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">@string/random</item>
+    </style>
+    <!-- Score number text style -->
+    <style name="scoreStyle">
+         <item name="android:layout_width">match_parent</item>
+         <item name="android:layout_height">wrap_content</item>
+         <item name="android:text">@string/Score</item>
+         <item name="android:gravity">center_horizontal</item>
+         <item name="android:padding">@dimen/medium_spacing</item>
+         <item name="android:textSize">@dimen/huge_text_size</item>
+         <item name="android:textColor">@color/scoreColor</item>
+    </style>
+    <!-- Adding buttons style -->
+    <style name="addButtonStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/small_spacing</item>
+        <item name="android:layout_marginLeft">@dimen/large_spacing</item>
+        <item name="android:layout_marginRight">@dimen/large_spacing</item>
+    </style>
+    <!-- Status text style (below adding buttons) -->
+    <style name="statusTextStyle">
+         <item name="android:layout_width">match_parent</item>
+         <item name="android:layout_height">wrap_content</item>
+         <item name="android:text">@string/generated_number</item>
+         <item name="android:layout_marginTop">@dimen/larger_spacing</item>
+         <item name="android:textSize">@dimen/large_text_size</item>
+         <item name="android:paddingLeft">@dimen/large_spacing</item>
+         <item name="android:paddingRight">@dimen/large_spacing</item>
+    </style>
 </resources>
