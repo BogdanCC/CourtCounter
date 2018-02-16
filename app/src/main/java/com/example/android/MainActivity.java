@@ -11,9 +11,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Random;
-// COMMIT!
+
 public class MainActivity extends AppCompatActivity {
-    // Declaring all findViewByIds
+    /**
+     * Declaring all the needed variables
+     * */
     MediaPlayer mediaPlayer;
     Button button3A;
     Button button2A;
@@ -47,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                 releaseMediaPlayer();
             }
         });
-        // Initialising all findViewByIds
+        // Getting all the views we want to manipulate
         button3A = (Button) findViewById(R.id.three_points_A);
         button2A = (Button) findViewById(R.id.two_points_A);
         button1A = (Button) findViewById(R.id.one_point_A);
@@ -63,13 +65,17 @@ public class MainActivity extends AppCompatActivity {
         randomA = (TextView) findViewById(R.id.random_string_A);
         randomB = (TextView) findViewById(R.id.random_string_B);
     }
-    // Release media player if activity has stopped
+    /**
+     * Release media player resources when activity stops
+     * */
     @Override
     protected void onStop() {
         super.onStop();
         releaseMediaPlayer();
     }
-    // Release media player method
+    /**
+     * Method to release the media player resources
+     * */
     public void releaseMediaPlayer() {
         // If media player is not empty(something is playing) -> release it
         if(mediaPlayer != null) {
@@ -78,36 +84,41 @@ public class MainActivity extends AppCompatActivity {
             mediaPlayer = null;
         }
     }
-    // Creating the global variables that we need
-    int scoreTeamA = 0; // int to store score A
-    int scoreTeamB = 0; // int to store score B
-    // Creating the random object
+    /** Creating the global variables that we need */
+    int scoreTeamA = 0;
+    int scoreTeamB = 0;
+    // Creating a new Random object to later generate 2 random numbers
     Random rand = new Random();
-    // Creating the range of randomness
+    // Range of randomness
     int range = 10 - 0 + 1;
-    // Ints to store the random A and random B
+    // Ints to store the 2 generated numbers
     int generatedTeamA;
     int generatedTeamB;
-    // Creating booleans to make app fully functional
+    // Booleans to make app fully functional
     boolean isPlayersAturn;
     boolean isPlayersBturn;
     boolean hasCheckedZero;
 
-    // Creating the method that generates the 2 random numbers
+    /** This method generates and saves 2 random numbers from 0 to 10 */
     public void generate() {
         generatedTeamA = rand.nextInt(range);
         generatedTeamB = rand.nextInt(range);
     }
-    // Method to show the random number at the end of the game
+    /** This method displays the 2 random numbers that were generated before */
     public void showRandom() {
         randomA.setText(String.valueOf(generatedTeamA));
         randomB.setText(String.valueOf(generatedTeamB));
     }
+    /** This method uses a MediaPlayer object to play a sound (will be called when someone wins) */
     public void victorySound(){
         mediaPlayer = MediaPlayer.create(this, R.raw.victory);
         mediaPlayer.start();
     }
-    // Method to compare score B with random B
+    /**
+     * Method to compare score B with random B
+     *  When they are equal, player B wins
+     *  When score B is greater than random B, player B loses
+     * */
     public void checkScoreB() {
             // If score B is equal to random B, player B wins
             if(scoreTeamB == generatedTeamB) {
@@ -134,7 +145,11 @@ public class MainActivity extends AppCompatActivity {
                 victorySound();
             }
     }
-    // Method to compare score A with random A
+    /**
+     * Method to compare score A with random A
+     *  When they are equal, player A wins
+     *  When score A is greater than random A, player A loses
+     * */
     public void checkScoreA() {
             if(scoreTeamA == generatedTeamA) {
                 displayTextForTeamA(getResources().getString(R.string.winner));
@@ -160,8 +175,11 @@ public class MainActivity extends AppCompatActivity {
                 victorySound();
         }
     }
-    // Method that checks if random is 0 (Players can do this at the very begining)
-    // If player A checks for 0, and his random is not 0 but random B is 0, player B wins! so choose wisely
+
+    /**
+     * This method checks to see if the generated number is 0 (one player can do this at the very beginning of the game)*
+     * If player A checks for 0, and the number generated for him (random A) is not 0 but random B is 0, player B wins!
+     * */
     public void checkZeroA(View view) {
         Toast noZero = Toast.makeText(MainActivity.this, "No need to check for 0!", Toast.LENGTH_LONG);
         // Only check for 0 if nobody has checked yet
@@ -201,7 +219,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-    // If player B checks for 0, and his random is not 0 but random A is 0, player A wins! so choose wisely
+
+    /**
+     * Just like before, this method checks to see if the generated number is 0 (one player can do this at the very beginning of the game)
+     * If player B checks for 0, and the number generated for him (random B) is not 0 but random A is 0, player A wins!
+     * */
     public void checkZeroB(View view) {
         Toast noZero = Toast.makeText(MainActivity.this, "No need to check for 0!", Toast.LENGTH_LONG);
         // Only check for 0 if nobody has checked yet
@@ -240,7 +262,9 @@ public class MainActivity extends AppCompatActivity {
             noZero.show();
         }
     }
-    // Method to add 3 points to score A
+    /**
+     * Method to add 3 points to score A
+     * */
     public void threePoints(View view) {
         Toast notYourTurn = Toast.makeText(this, "Not your turn!", Toast.LENGTH_LONG);
         if(isPlayersAturn) {
@@ -256,7 +280,9 @@ public class MainActivity extends AppCompatActivity {
             notYourTurn.show();
         }
     }
-    // Method to add 2 points to score A
+    /**
+     * Method to add 2 points to score A
+     * */
     public void twoPoints(View view) {
         Toast notYourTurn = Toast.makeText(this, "Not your turn!", Toast.LENGTH_LONG);
         if(isPlayersAturn) {
@@ -272,7 +298,9 @@ public class MainActivity extends AppCompatActivity {
             notYourTurn.show();
         }
     }
-    // Method to add 1 point to score A
+    /**
+     * Method to add 1 point to score A
+     * */
     public void freeThrow(View view) {
         Toast notYourTurn = Toast.makeText(this, "Not your turn!", Toast.LENGTH_LONG);
         if(isPlayersAturn) {
@@ -288,7 +316,9 @@ public class MainActivity extends AppCompatActivity {
             notYourTurn.show();
         }
     }
-    // Method to add 3 points to score B
+    /**
+     * Method to add 3 points to score B
+     * */
     public void threePointsB(View view) {
         Toast notYourTurn = Toast.makeText(this, "Not your turn!", Toast.LENGTH_LONG);
         if(isPlayersBturn) {
@@ -304,7 +334,9 @@ public class MainActivity extends AppCompatActivity {
             notYourTurn.show();
         }
     }
-    // Method to add 2 points to score B
+    /**
+     * Method to add 2 points to score B
+     * */
     public void twoPointsB(View view) {
         Toast notYourTurn = Toast.makeText(this, "Not your turn!", Toast.LENGTH_LONG);
         if(isPlayersBturn) {
@@ -320,7 +352,9 @@ public class MainActivity extends AppCompatActivity {
             notYourTurn.show();
         }
     }
-    // Method to add 1 point to score B
+    /**
+     * Method to add 1 point to score B
+     * */
     public void freeThrowB(View view) {
         Toast notYourTurn = Toast.makeText(this, "Not your turn!", Toast.LENGTH_LONG);
         if(isPlayersBturn) {
@@ -336,7 +370,9 @@ public class MainActivity extends AppCompatActivity {
             notYourTurn.show();
         }
     }
-    // Method for reset button to reset everything
+    /**
+     * Method for the reset button to start all over again
+     * */
     public void resetScore(View view) {
         releaseMediaPlayer();
         mediaPlayer = MediaPlayer.create(this, R.raw.sound_file_1);
@@ -366,6 +402,9 @@ public class MainActivity extends AppCompatActivity {
         isPlayersBturn = true;
         hasCheckedZero = false;
     }
+    /** Method to make buttons unclickable if game is over, except for the reset button
+     *  This will also call releaseMediaPlayer()
+     * */
     public void gameOver() {
         button3A.setEnabled(false);
         button2A.setEnabled(false);
@@ -377,16 +416,23 @@ public class MainActivity extends AppCompatActivity {
         button0B.setEnabled(false);
         releaseMediaPlayer();
     }
+    /**
+     * Methods to display the score for each player
+     * @param score - the current score for each player to set it to the TextView
+     * */
     public void displayForTeamA(int score) {
         scoreViewA.setText(String.valueOf(score));
-    }
-    public void displayTextForTeamA(String score) {
-        textViewA.setText(score);
     }
     public void displayForTeamB(int score) {
         scoreViewB.setText(String.valueOf(score));
     }
-    public void displayTextForTeamB(String score) {
-        textViewB.setText(score);
+    /**
+     * Methods to display the text for the TextView below the 3 adding buttons
+     * @param text - the appropriate text for each button pressed */
+    public void displayTextForTeamA(String text) {
+        textViewA.setText(text);
+    }
+    public void displayTextForTeamB(String text) {
+        textViewB.setText(text);
     }
 }
