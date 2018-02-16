@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Root ScrollView -->
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -6,223 +7,166 @@
     android:layout_height="fill_parent"
     android:layout_width="fill_parent"
     >
+    <!-- Full layout container -->
     <LinearLayout
         android:id="@+id/activity_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         >
+        <!-- Main game container -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             >
+            <!-- Player A column layout -->
             <LinearLayout
-                android:layout_width="@dimen/null_size"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical"
+                style="@style/playerColumnStyle"
                 >
-
+                <!-- Player name TextView -->
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/playerNameStyle"
                     android:text="@string/Team_A"
-                    android:gravity="center_horizontal"
-                    android:padding="@dimen/medium_spacing"
                     android:fontFamily="sans-serif-medium"
-                    android:textSize="@dimen/medium_text_size"
-                    android:textColor="@color/teamNameColor"
                     />
+                <!-- Player A's generated number TextView -->
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/random"
+                    style="@style/generatedNumberStyle"
                     android:textAlignment="center"
                     android:id="@+id/random_string_A"
                     />
+                <!-- Player A's score TextView -->
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/Score"
-                    android:gravity="center_horizontal"
-                    android:padding="@dimen/medium_spacing"
+                    style="@style/scoreStyle"
                     android:id="@+id/team_a_score"
-                    android:textSize="@dimen/huge_text_size"
                     android:fontFamily="sans-serif-light"
-                    android:textColor="@color/scoreColor"
                     />
+                <!-- Player A's adding buttons -->
                 <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/addButtonStyle"
                     android:text="@string/three_points"
-                    android:layout_marginTop="@dimen/small_spacing"
-                    android:layout_marginLeft="@dimen/large_spacing"
-                    android:layout_marginRight="@dimen/large_spacing"
                     android:onClick="threePoints"
                     android:background="@color/firyColor"
                     android:id="@+id/three_points_A"
                     />
                 <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/addButtonStyle"
                     android:text="@string/two_points"
-                    android:layout_marginTop="@dimen/small_spacing"
-                    android:layout_marginLeft="@dimen/large_spacing"
-                    android:layout_marginRight="@dimen/large_spacing"
                     android:onClick="twoPoints"
                     android:background="@color/mooColor"
                     android:id="@+id/two_points_A"
                     />
                 <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/addButtonStyle"
                     android:text="@string/free_throw"
-                    android:layout_marginTop="@dimen/small_spacing"
-                    android:layout_marginLeft="@dimen/large_spacing"
-                    android:layout_marginRight="@dimen/large_spacing"
                     android:onClick="freeThrow"
                     android:background="@color/meowColor"
                     android:id="@+id/one_point_A"
                     />
                 <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/addButtonStyle"
                     android:text="@string/feel_lucky"
-                    android:layout_marginTop="@dimen/small_spacing"
-                    android:layout_marginLeft="@dimen/large_spacing"
-                    android:layout_marginRight="@dimen/large_spacing"
                     android:onClick="checkZeroA"
                     android:background="@color/meLuckyColor"
                     android:id="@+id/zero_points_A"
                     />
+                <!-- Player A's status TextView -->
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/generated_number"
+                    style="@style/statusTextStyle"
                     android:textAlignment="center"
-                    android:layout_marginTop="@dimen/larger_spacing"
-                    android:textSize="@dimen/large_text_size"
-                    android:paddingLeft="@dimen/large_spacing"
-                    android:paddingRight="@dimen/large_spacing"
                     android:id="@+id/generatedA"
                     />
+            <!-- End Player A column layout -->
             </LinearLayout>
+            <!-- Divider -->
             <LinearLayout
-                android:layout_width="1dp"
+                android:layout_width="@dimen/divider_width"
                 android:layout_height="match_parent"
                 android:background="@android:color/darker_gray"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="@dimen/medium_spacing"
                 >
-
+            <!-- End Divider -->
             </LinearLayout>
+            <!-- Player B column layout -->
             <LinearLayout
-                android:layout_width="@dimen/null_size"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical"
+                style="@style/playerColumnStyle"
                 >
-
+                <!-- Player name TextView -->
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/playerNameStyle"
                     android:text="@string/Team_B"
-                    android:gravity="center_horizontal"
-                    android:padding="@dimen/medium_spacing"
                     android:fontFamily="sans-serif-medium"
-                    android:textSize="@dimen/medium_text_size"
-                    android:textColor="@color/teamNameColor"
                     />
+                <!-- Player B's generated number TextView -->
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/random"
+                    style="@style/generatedNumberStyle"
                     android:textAlignment="center"
                     android:id="@+id/random_string_B"
                     />
+                <!-- Player B's score TextView -->
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/Score"
-                    android:gravity="center_horizontal"
-                    android:padding="@dimen/medium_spacing"
+                    style="@style/scoreStyle"
                     android:id="@+id/team_b_score"
-                    android:textSize="@dimen/huge_text_size"
                     android:fontFamily="sans-serif-light"
-                    android:textColor="@color/scoreColor"
                     />
+                <!-- Player B's adding buttons -->
                 <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/addButtonStyle"
                     android:text="@string/three_points"
-                    android:layout_marginTop="@dimen/small_spacing"
-                    android:layout_marginLeft="@dimen/large_spacing"
-                    android:layout_marginRight="@dimen/large_spacing"
                     android:onClick="threePointsB"
                     android:background="@color/firyColor"
                     android:id="@+id/three_points_B"
                     />
                 <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/addButtonStyle"
                     android:text="@string/two_points"
-                    android:layout_marginTop="@dimen/small_spacing"
-                    android:layout_marginLeft="@dimen/large_spacing"
-                    android:layout_marginRight="@dimen/large_spacing"
                     android:onClick="twoPointsB"
                     android:background="@color/mooColor"
                     android:id="@+id/two_points_B"
                     />
                 <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/addButtonStyle"
                     android:text="@string/free_throw"
-                    android:layout_marginTop="@dimen/small_spacing"
-                    android:layout_marginLeft="@dimen/large_spacing"
-                    android:layout_marginRight="@dimen/large_spacing"
                     android:onClick="freeThrowB"
                     android:background="@color/meowColor"
                     android:id="@+id/one_point_B"
                     />
                 <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/addButtonStyle"
                     android:text="@string/feel_lucky"
-                    android:layout_marginTop="@dimen/small_spacing"
-                    android:layout_marginLeft="@dimen/large_spacing"
-                    android:layout_marginRight="@dimen/large_spacing"
                     android:onClick="checkZeroB"
                     android:background="@color/meLuckyColor"
                     android:id="@+id/zero_points_B"
                     />
+                <!-- Player B's status TextView -->
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/generated_number"
+                    style="@style/statusTextStyle"
                     android:textAlignment="center"
-                    android:layout_marginTop="@dimen/larger_spacing"
-                    android:textSize="@dimen/large_text_size"
-                    android:paddingLeft="@dimen/large_spacing"
-                    android:paddingRight="@dimen/large_spacing"
                     android:id="@+id/generatedB"
                     />
-
+            <!-- End Player B column layout -->
             </LinearLayout>
+        <!-- End main game container -->
         </LinearLayout>
+        <!-- Reset button layout -->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="@dimen/large_spacing"
             >
             <Button
-                android:layout_width="75dp"
-                android:layout_height="75dp"
+                android:layout_width="@dimen/reset_button_size"
+                android:layout_height="@dimen/reset_button_size"
                 android:text="@string/reset"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:onClick="resetScore"
                 android:background="@drawable/circle"
                 />
+        <!-- End reset button layout -->
         </RelativeLayout>
+    <!-- End full layout container -->
     </LinearLayout>
+<!-- End root ScrollView -->
 </ScrollView>
