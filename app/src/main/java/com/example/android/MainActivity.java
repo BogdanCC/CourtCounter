@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
      *  When they are equal, player B wins
      *  When score B is greater than random B, player B loses
      * */
-    public void checkScoreB() {
+    private void checkScoreB() {
             // If score B is equal to random B, player B wins
             if(scoreTeamB == generatedTeamB) {
                 displayTextForTeamB(getResources().getString(R.string.winner));
@@ -150,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
      *  When they are equal, player A wins
      *  When score A is greater than random A, player A loses
      * */
-    public void checkScoreA() {
+    private void checkScoreA() {
             if(scoreTeamA == generatedTeamA) {
                 displayTextForTeamA(getResources().getString(R.string.winner));
                 displayTextForTeamB(getResources().getString(R.string.loser));
@@ -268,7 +268,7 @@ public class MainActivity extends AppCompatActivity {
     public void threePoints(View view) {
         Toast notYourTurn = Toast.makeText(this, "Not your turn!", Toast.LENGTH_LONG);
         if(isPlayersAturn) {
-            scoreTeamA = scoreTeamA + 3;
+            scoreTeamA += 3;
             displayForTeamA(scoreTeamA);
             displayTextForTeamA(getResources().getString(R.string.rawr));
             textViewA.setTextColor(ResourcesCompat.getColor(getResources(), R.color.firyColor, null));
@@ -286,7 +286,7 @@ public class MainActivity extends AppCompatActivity {
     public void twoPoints(View view) {
         Toast notYourTurn = Toast.makeText(this, "Not your turn!", Toast.LENGTH_LONG);
         if(isPlayersAturn) {
-            scoreTeamA = scoreTeamA + 2;
+            scoreTeamA += 2;
             displayForTeamA(scoreTeamA);
             displayTextForTeamA(getResources().getString(R.string.boring));
             textViewA.setTextColor(ResourcesCompat.getColor(getResources(), R.color.mooColor, null));
@@ -322,7 +322,7 @@ public class MainActivity extends AppCompatActivity {
     public void threePointsB(View view) {
         Toast notYourTurn = Toast.makeText(this, "Not your turn!", Toast.LENGTH_LONG);
         if(isPlayersBturn) {
-            scoreTeamB = scoreTeamB + 3;
+            scoreTeamB += 3;
             displayForTeamB(scoreTeamB);
             displayTextForTeamB(getResources().getString(R.string.rawr));
             textViewB.setTextColor(ResourcesCompat.getColor(getResources(), R.color.firyColor, null));
@@ -340,7 +340,7 @@ public class MainActivity extends AppCompatActivity {
     public void twoPointsB(View view) {
         Toast notYourTurn = Toast.makeText(this, "Not your turn!", Toast.LENGTH_LONG);
         if(isPlayersBturn) {
-            scoreTeamB = scoreTeamB + 2;
+            scoreTeamB += 2;
             displayForTeamB(scoreTeamB);
             displayTextForTeamB(getResources().getString(R.string.boring));
             textViewB.setTextColor(ResourcesCompat.getColor(getResources(), R.color.mooColor, null));
